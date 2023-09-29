@@ -1,8 +1,12 @@
-import Contacts from "./pages/contacts"
+import { BrowserRouter } from "react-router-dom"
+import Router from "../Router"
 
 function App() {
   return(
-    <Contacts/>
+    <BrowserRouter>
+    <Router/>
+    </BrowserRouter>
+    
   )
 }
 

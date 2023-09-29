@@ -1,18 +1,24 @@
+import { Link } from "react-router-dom"
+
 function Contacts(){
     return(
         <div>
         <form>
             <input type="text" placeholder="Pesquisar pelo nome..." />
             <button>Pesquisar</button>
-        </form>
+        
         <table>
-            <td> Contatos
-            <tr>contato 1</tr>
-            <tr>contato 2</tr>
-            </td>
+            <tbody>
+            <tr>
+                <td>Contatos</td>
+            </tr>
+            <tr>
+                <td>contato1</td>
+            </tr>
+            </tbody>
         </table>
-
-        <button>Adicionar novo contato</button>
+        </form>
+        <Link to="/add-new-contact" className="btn">Adicionar novo contato</Link>
         </div>
 
     )
