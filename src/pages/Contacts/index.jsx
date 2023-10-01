@@ -37,7 +37,7 @@ function Contacts(){
                 <tbody>
                 {contacts.map(contact=>{return(
                 <tr key={contact.id}>
-                    <td>{contact.name} <button>editar</button></td>
+                    <td>{contact.name} <Link to={"/edit-contact"}>Editar</Link> <button>Apagar</button></td>
                 </tr>
                     )
                 })}
@@ -45,7 +45,7 @@ function Contacts(){
             </table>
          
         </form>
-        <Link to="/add-new-contact" className="btn ">Adicionar novo contato</Link>
+        <Link to="/create-new-contact" className="btn ">Adicionar novo contato</Link>
         </div>
 
     )
