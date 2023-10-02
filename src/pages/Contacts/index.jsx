@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 
 function Contacts(){
     const [contacts, setContacts] = useState([]);
+    const [searchContact, setSearchContact] = useState("");
 
     const getContacts = async() => {
         try {
@@ -26,18 +27,38 @@ function Contacts(){
         getContacts(); 
     }, [])
 
+
+    const handleSearch = async (e) => {
+        e.preventDefault()
+
+       let condition = '?name=';
+
+       if(setSearchContact != "") {
+        condition + searchContact
+        try {
+            const response = await api.get(`/contacts/${condition + searchContact}`);
+            if (response.status === 200) {
+              setContacts(response.data);
+            }
+          } catch (error) {
+            console.log('err')
+          }
+       }
+    }
+    
     return(
         <div>
             <h1>Contatos</h1>
+            
         <form>
-            <input type="text" placeholder="Pesquisar pelo nome..." />
-            <button>Pesquisar</button>
+            <input onChange={(e)=>{setSearchContact(e.target.value)}} type="text" placeholder="Pesquisar pelo nome..." />
+            <button onClick={handleSearch}>Pesquisar</button>
             
             <table>
                 <tbody>
                 {contacts.map(contact=>{return(
                 <tr key={contact.id}>
-                    <td>{contact.name} <Link to={"/edit-contact"}>Editar</Link> <button>Apagar</button></td>
+                    <td>{contact.name} <Link to={"/info-contact"}>Informações do contato</Link> </td>
                 </tr>
                     )
                 })}

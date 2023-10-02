@@ -2,15 +2,15 @@
   "contacts": [
     {
       "id": 1,
-      "name": "Eduardo irmão",
-      "address": "rua sirma, 2222",
-      "number": "31 9999-9999"
+      "name": "Mãe",
+      "address": "rua sirma",
+      "number": "99999999"
     },
     {
       "id": 2,
-      "name": "Mãe",
-      "address": "rua sirma, 2222",
-      "number": "31 9999-9999"
+      "name": "irmão",
+      "address": "rua sirma 2222",
+      "number": "99999999"
     }
   ]
 }
