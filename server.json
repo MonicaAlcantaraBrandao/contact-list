@@ -7,21 +7,9 @@
       "number": "99999999"
     },
     {
-      "id": 2,
-      "name": "irmão",
-      "address": "rua sirma 2222",
-      "number": "99999999"
-    },
-    {
       "id": 3,
       "name": "Mônica",
       "address": "teste",
-      "number": "9999999"
-    },
-    {
-      "id": 4,
-      "name": "namorado",
-      "address": "rua",
       "number": "9999999"
     }
   ]

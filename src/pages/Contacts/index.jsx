@@ -50,6 +50,9 @@ function Contacts(){
           }
        }
     }
+
+    const handleDeleteContact = async (index) => {
+        await api.delete(`/contacts/${index}`)}
     
     return(
         <div>
@@ -63,10 +66,12 @@ function Contacts(){
                 <tbody>
                 {contacts.map(contact=>{return(
                 <tr key={contact.id}>
-                    <td>{contact.name} <Link to={"/info-contact"}>Info</Link> </td>
+                    <td>{contact.name} </td>
+                    <td>{contact.address}</td>
+                    <td>{contact.number} <Link to={"/edit-contact"}>Editar</Link> <button onClick={()=> handleDeleteContact(contact.id)}>Apagar</button> </td>
                 </tr>
                     )
-                })}
+                })}    
                 </tbody>
             </table>
          
