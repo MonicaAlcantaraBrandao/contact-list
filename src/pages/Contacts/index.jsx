@@ -5,6 +5,11 @@ import { Link } from "react-router-dom"
 function Contacts(){
     const [contacts, setContacts] = useState([]);
     const [searchContact, setSearchContact] = useState("");
+    const [contact, setContact] = useState({
+        name:"",
+        address:"",
+        number:"",
+    })
 
     const getContacts = async() => {
         try {
@@ -58,7 +63,7 @@ function Contacts(){
                 <tbody>
                 {contacts.map(contact=>{return(
                 <tr key={contact.id}>
-                    <td>{contact.name} <Link to={"/info-contact"}>Informações do contato</Link> </td>
+                    <td>{contact.name} <Link to={"/info-contact"}>Info</Link> </td>
                 </tr>
                     )
                 })}

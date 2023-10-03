@@ -1,21 +1,7 @@
 import { Link } from "react-router-dom"
-import api from "../../axios/axios"
-import { useEffect } from "react"
 
 function EditContact(){
-    const getContact = async(index) => {
-        try {
-            const response = await api.get(`/contacts/${index}`)
-            const data = response.data
-
-        } catch (error) {
-            alert("falha ao encontrar contatos.")
-        }
-    } 
-
-    useEffect(()=>{
-        getContact()
-    })
+    
 
     return(
         <div>
