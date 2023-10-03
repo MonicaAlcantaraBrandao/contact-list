@@ -1,22 +1,28 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import api from "../../axios/axios";
 
 function EditdataEdit(){
     const [name, setName] = useState()
     const [number, setNumber] = useState();
     const [address, setAddress] = useState();
 
-    const handleEdit = async (e)=> {
-        e.preventDefault()
+// pesquise sobre userParams https://backefront.com.br/como-usar-useparams-react/
+
+// vc precisa pegar seu server.json e ter ele aqui pra vc pesquisar nele
+
+// fazer uma busca nele onde o id que ta chegando seja igual o id do seu json
+// https://pt.stackoverflow.com/questions/238056/localizar-o-id-dentro-do-array-em-json
+
+    // const handleEdit = async (e)=> {
+    //     e.preventDefault()
         
-        await api.put(`/contacts/${id}`, {
-        id:0,
-        name:name,
-        address:address,
-        number:number,
-        })
-    }
+    //     await api.put(`/contacts/${id}`, {
+    //     id:0,
+    //     name:name,
+    //     address:address,
+    //     number:number,
+    //     })
+    // }
 
     return(
         <div>
