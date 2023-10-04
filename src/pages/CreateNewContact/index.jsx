@@ -8,9 +8,7 @@ function CreateNewContact(){
     const [number, setNumber] = useState();
     const [address, setAddress] = useState();
 
-    async function createContact(e){
-        e.preventDefault()
-        
+    async function createContact(){
         await api.post("/contacts", {
         id:0,
         name:name,

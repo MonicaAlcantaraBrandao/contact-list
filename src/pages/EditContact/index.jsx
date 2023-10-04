@@ -1,11 +1,8 @@
-import {  useState } from "react"
+import {  useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import api from "../../axios/axios";
 
 function EditContact(){
-    const [name, setName] = useState()
-    const [number, setNumber] = useState();
-    const [address, setAddress] = useState();
     const [contact, setContact] = useState({
         id: 0,
         name:"",
@@ -26,16 +23,16 @@ function EditContact(){
         }
     } 
 
-    getContact()
+    useEffect(() => {
+        getContact()
+    },[])
 
-    const handleEdit = async (e)=> {
-        e.preventDefault()
-        
+    const handleEdit = async ()=> {
         await api.put(`/contacts/${id}`, {
         id:0,
-        name:name,
-        address:address,
-        number:number,
+        name:contact.name,
+        address:contact.address,
+        number:contact.number,
         })
     }
 
@@ -45,13 +42,13 @@ function EditContact(){
 
             <form action="">
                 <label>Nome:</label>
-                <input type="text" value={contact.name} onChange={(e)=>setName(e.target.value)}/>
+                <input type="text" value={contact.name} onChange={(e)=>setContact({...contact, name: e.target.value})}/>
 
                 <label>Endereço:</label>
-                <input type="text" value={contact.address} onChange={(e)=>setAddress(e.target.value)}/>
+                <input type="text" value={contact.address} onChange={(e)=>setContact({...contact, address: e.target.value})}/>
 
                 <label>Telefone:</label>
-                <input type="text" value={contact.number} onChange={(e)=>setNumber(e.target.value)}/>
+                <input type="text" value={contact.number} onChange={(e)=>setContact({...contact, number: e.target.value})}/>
 
                 <button onClick={handleEdit}>Salvar</button>
                 <Link to={"/"}>Voltar</Link>
